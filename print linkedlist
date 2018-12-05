@@ -1,0 +1,19 @@
+
+#print linkedlist
+class node:
+    def __init__(self,value):
+        self.Value=value
+        self.next=None
+        
+head1=node(1)
+n1=node(2)
+n2=node(34)
+head1.next=n1
+n1.next=n2
+
+def travs_LL(head):
+    if(head!=None):
+        print head.Value
+        travs_LL(head.next)
+
+travs_LL(head1)
