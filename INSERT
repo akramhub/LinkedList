@@ -1,0 +1,35 @@
+class node:
+    def __init__(self,value):
+        self.Value=value
+        self.next=None
+    
+head=node(1)
+n1=node(2)
+n2=node(3)
+n3=node(4)
+n4=node(5)
+n5=node(6)
+n6=node(7)
+head.next=n1
+n1.next=n2
+n2.next=n3
+n3.next=n4
+n4.next=n5
+n5.next=n6
+n6.next=None
+
+def traverse(head):
+    if (head!=None):
+        print head.Value
+        traverse(head.next)
+traverse(head)
+    
+def insert(value, index, head):
+    n_1=head
+    for i in range(1,index):
+       n_1= n_1.next
+    newnode=node(value)   
+    newnode.next=n_1.next
+    n_1.next=newnode    
+insert(54,4,head)    
+traverse(head)
