@@ -1,0 +1,62 @@
+class Node:
+    def __init__(self,value):
+        self.value=value
+        self.next=None
+        self.pre=None
+        
+def Update(head,node):
+    if head== None:
+        head=node
+    elif node!=None:
+        node.pre.next=node.next
+        node.next.pre=node.pre
+        tmp=head
+        tmp.pre=node
+        head=node
+        head.next=tmp
+        #delet node
+        
+        print head.value,"hhh"
+        print head.next.value
+        print head.next.pre.value,"kk"
+        
+def printll(head):
+    while (head!=None):
+        print "node",head.value
+        head=head.next
+def addnode(head,value,n):
+    c=1
+    current_node=head
+    while(c<n):
+        current_node=current_node.next
+        c+=1
+    newnode=Node(value)    
+    newnode.next=current_node.next
+    current_node.next=newnode
+    
+        
+    
+    
+        
+        
+n1=Node(1) 
+n2=Node(2)
+n3=Node(3)
+n4=Node(4)
+n5=Node(5)
+n1.next=n2
+n2.pre=n1
+n2.next=n3
+n3.pre=n2
+n3.next=n4
+n4.pre=n3
+n4.next=n5
+n5.pre=n4
+printll(n1)
+Update(n1,n3)
+print "-----------------------"
+printll(n3)
+addnode(n3,56,4)
+print "-----------------------"
+printll(n3)
+    
