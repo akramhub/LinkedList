@@ -1,0 +1,50 @@
+# Hello World program in Python
+    
+def reverse_Linkedlist(head):
+    if head!=None:
+        tmp=head.next.next
+        nod=head.next
+        head.next.next=head
+        head.next=None
+        if nod==None:
+            head=nod
+    
+    while( nod!=None):
+        if tmp!=None:
+            if tmp.next!=None: 
+                temp=tmp.next
+                
+            else:
+                temp=None
+            tmp.next=nod
+            nod=tmp
+            tmp=temp
+            
+        else:
+            head=nod    
+            nod=None
+    return head
+class Node:
+    def __init__(self,value):
+        self.value=value
+        self.next=None
+
+def print_Linkedlist(head):
+    node=head
+    while(node!=None):
+        print( node.value)
+        node=node.next
+head=Node(1)
+n1=Node(2)
+n2=Node(3)
+n3=Node(4)
+head.next=n1
+n1.next=n2
+n2.next=n3
+print("-------------- initial linked list----------------------") 
+print_Linkedlist(head)        
+print("------------------------------- The reverse Linked list-----------") 
+
+n=reverse_Linkedlist(head)
+
+print (print_Linkedlist(n))
