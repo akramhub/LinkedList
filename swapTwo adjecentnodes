@@ -1,0 +1,21 @@
+def Swap_adjacent_Nodes(head):
+    # head ----> nnode--->cnode   ::: nnode --->head --->cnode
+    if head and head.next:
+       nnode=head.next
+       cnode=nnode.next
+       nnode.next=head
+       head.next=cnode
+       pre=head
+       head=nnode
+       
+        #pre-->cnode__>nnode__>nex   ::>>>>   pre -->nnode-->cnode-->nex
+    while(cnode and cnode.next):
+        nnode=cnode.next
+        nex=nnode.next
+        nnode.next=cnode
+        pre.next=nnode
+        cnode.next=nex
+        pre=cnode
+        cnode=nex
+        
+    return head
