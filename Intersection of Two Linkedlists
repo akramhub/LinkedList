@@ -1,0 +1,54 @@
+class node:
+    def __init__(self,value):
+        self.value=value
+        self.next=None
+        
+head1=node(1)
+n1=node(2)
+n2=node(3)
+n3=node(4)
+head1.next=n1
+n1.next=n2
+n2.next=n3
+head2=node(10)
+n12=node(20)
+n22=node(3)
+n32=node(4)
+head2.next=n12
+n12.next=n22
+n22.next=n32
+def inverse(head):
+    # pre-->cur-->nex : pre<--cur<--nex
+    pre=None
+    cur=head
+    while(cur):
+        #print (cur.value,"prevalue")
+        
+        nex=cur.next
+        cur.next=pre
+        pre=cur
+        cur=nex
+    return pre
+def travs_LL(head):
+    if(head!=None):
+        print( head.value)
+        travs_LL(head.next)
+
+
+  
+    
+def inersection_Two_LinkedLists(head1,head2):
+    headE1=inverse(head1)
+    headE2=inverse(head2)
+    travs_LL(headE1)
+    print ("-------------")
+    travs_LL(headE2)
+    while(headE1 and headE2 and headE1.value==headE2.value ):
+        tmp=headE1
+        headE1=headE1.next
+        headE2=headE2.next
+        
+    return tmp
+headhead=inersection_Two_LinkedLists(head1,head2)
+print(";;;;;;;;;;;;;;;;;;;;;;;;;;;;")
+print (headhead.value)
